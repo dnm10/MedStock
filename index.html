@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +9,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
@@ -20,7 +21,7 @@
     <!-- Google Fonts Link For Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    
 </head>
     <header>
         <nav class="navbar">
@@ -28,10 +29,7 @@
            
             <ul class="links">
                 <span class="close-btn material-symbols-rounded">close</span>
-                <li><a href="#">Home</a></li>
-                
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Smart Inventory Solutions!</a></li>
             </ul>
             
             
@@ -52,7 +50,9 @@
         <span class="close-btn material-symbols-rounded">close</span>
         <div class="form-box login">
             <div class="form-details">
-               
+               <div>
+                <img src="mslogo.png" alt="logo"/>
+               </div>
             </div>
             <div class="form-content">
                 <h2>LOGIN</h2>
@@ -65,6 +65,10 @@
                         <input type="password" required>
                         <label>Password</label>
                     </div>
+                    <div class="input-field">
+                      <input type="password" required>
+                      <label>Confirm Password</label>
+                  </div>
                     <a href="#" class="forgot-pass-link">Forgot password?</a>
                     <button type="submit">Log In</button>
                 </form>
@@ -76,7 +80,9 @@
         </div>
         <div class="form-box signup">
             <div class="form-details">
-                
+              <div>
+                <img src="mslogo.png" alt="logo"/>
+               </div>
             </div>
             <div class="form-content">
                 <h2>SIGNUP</h2>
@@ -89,6 +95,10 @@
                         <input type="password" required>
                         <label>Create password</label>
                     </div>
+                    <div class="input-field">
+                      <input type="password" required>
+                      <label>Confirm password</label>
+                  </div>
                     <div class="policy-text">
                         <input type="checkbox" id="policy">
                         <label for="policy">
@@ -110,61 +120,132 @@
   
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="medlogo.png" alt="logo"/>
+      <img src="mslogo.png" alt="logo"/>
       <h2><b>MedStock</b></h2>
     </div>
     <ul class="sidebar-links">
-      <h4>
-        <span>Main Menu</span>
-        <div class="menu-separator"></div>
-      </h4>
       <li>
-        <a href=" dashboard.html">
-          <span class="material-symbols-outlined"> dashboard </span>Dashboard</a>
+        <a href="inventory.html">
+          <span class="material-symbols-outlined"> overview </span>Inventory</a>
       </li>
       <li>
-        <a href="inventory.html"><span class="material-symbols-outlined"> overview </span>Inventory</a>
+        <a href="orders.html"><span class="material-symbols-outlined"> inventory </span>Orders</a>
       </li>
       <li>
         <i class="fa-sharp fa-light fa-file-chart-pie"></i>
-        <a href="supplies.html">  <span class="material-symbols-outlined"> local_shipping </span> Supplies</a>
-      </li>
-
-      <li>
-        <a href="orders.html">
-          <span class="material-symbols-outlined"> inventory </span>  Orders
-      </a>
+        <a href="suppliers.html">  <span class="material-symbols-outlined"> local_shipping </span>Suppliers</a>
       </li>
 
       <li>
         <a href="reports.html">
-          <span class="material-symbols-outlined"> bar_chart </span> Reports
-      </a>
+          <span class="material-symbols-outlined"> bar_chart </span>Reports</a>
       </li>
-           
-      <h4>
-        <span>Account</span>
-        <div class="menu-separator"></div>
-      </h4>
+
+      <li>
+        <a href="alerts.html">
+          <span class="material-symbols-outlined"> notifications </span>Notifications</a>
+      </li>
+      <li>
+        <a href="users.html">
+      <span class="material-symbols-outlined"> group </span>Users</a>
+      </li>
       <li>
         <a href="#"><span class="material-symbols-outlined"> account_circle </span>Profile</a>
       </li>
-      
+      <li>
+        <a href="#"><span class="material-symbols-outlined"> settings </span>Settings</a>
+      </li>
       <li>
         <a href="#"><span class="material-symbols-outlined"> logout </span>Logout</a>
       </li>
     </ul>
-    <div class="user-account">
-      <div class="user-profile">
-        <img src="" alt="Profile Image" />
-        <div class="user-detail">
-          <h3> name</h3>
-          <span>Pharmasist</span>
-        </div>
-      </div>
-    </div>
   </aside>
 
+  <section class="hero-section">
+    <div class="content">
+      <h2>Manage Your Medical Inventory with Ease</h2>
+      <h3>"Monitor stock levels, manage orders, and stay updated with notifications"</h3>
+    </div>
+    <div class="hero-box">
+      <img src="hp1.jpg" alt="heroimg" class="hero-image">
+    </div>
+  </section>
+
+
+  <section class="first">
+    <div class="first-content animated text-animated">
+        <div class="capabilities">
+            <h2>Overview of System Capabilities:</h2>
+        </div>
+        <h3>
+            <ul class="points" type="disk">
+                <li>Inventory Management: Track stock levels, manage expiries, and keep medicines up to date.</li>
+                <li>Order Tracking: Simplified system to reorder supplies and check their status.</li>
+                <li>Notifications & Alerts: Get alerts for low stock or expiring items to take timely action.</li>
+                <li>Reporting Tools: View detailed reports on your inventory and sales trends.</li>
+            </ul>
+        </h3>
+    </div>
+    <div class="image1-box animated image-animated">
+        <img src="hp2.jpg" alt="img1" class="first-image">
+    </div>
+</section>
+
   
+
+  <section class="third">
+    <div class="third-content">
+      <div classs="benefits">
+          <h2>User Benefits:</h2>
+      </div>
+      <h3>
+          <ul class="points1" type="disk">
+            <li>Simplified Stock Management: Automate inventory tracking.</li>
+            <li>Stay Informed: Real-time notifications for expiring or low stock.</li>
+            <li>Save Time: Reduce manual effort with automated updates and reports.</li>
+          </ul>
+      </h3>
+      </div>
+    <div class="image2-box">
+      <img src="hp3.jpg" alt="img1" class="third">
+    </div>
+  </section>
+
+  <footer>
+    <div class="content">
+        <div class="top">
+            <div class="logo-details">
+              <img src="mslogo.png" alt="logo">
+                <span class="logo_name">MedStock</span>
+            </div>
+        </div>
+        <div class="link-boxes">
+            <ul class="box">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Get started</a></li>
+            </ul>
+            <ul class="box">
+                <li><a href="#">Inventory</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Suppliers</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Notifications</a></li>
+                <li><a href="#">Users</a></li>
+            </ul>
+            <ul class="box">
+                <li><a href="#">Profile</a></li>
+                <li><a href="#">My account</a></li>
+                <li><a href="#">Preferences</a></li>
+                <li><a href="#">Purchase</a></li>
+            </ul>
+        </div>
+    </div>
+  
+</footer>
+
+
+  <script src="script.js" defer></script>
 </body>
 </html>

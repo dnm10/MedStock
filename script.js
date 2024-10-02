@@ -31,3 +31,35 @@ signupLoginLink.forEach(link => {
 });
 
 
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() 
+    {
+        sidebar.classList.toggle("active");
+        if(sidebar.classList.contains("active"))
+            {
+                sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+            }
+        else
+            sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate"); // Add animation class
+                    observer.unobserve(entry.target); // Stop observing
+                }
+            });
+        });
+    
+        // Select all elements with the 'animate-on-scroll' class
+        const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+        elementsToAnimate.forEach(element => {
+            observer.observe(element); // Observe each element
+        });
+    });
+    
+    
+
