@@ -59,7 +59,7 @@ header {
 }
 
 .navbar .logo img {
-    width: 40px;
+    width: 80px;
     border-radius: 50%;
 }
 
@@ -695,15 +695,15 @@ body {
     line-height: 1.6; /* Space between lines for better readability */
 }
 
-.third .image2-box {
+.third .image3-box {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%; /* Adjust the width of the image box */
+    width: 30%; 
     margin-right: 80px; /* Space between image and right side of the viewport */
 }
   
-.third .second-image {
+.third .third-image {
     max-width: 100%;
     height: auto;
     border-radius: 10px; /* Rounded corners for the image */
