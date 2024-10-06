@@ -29,7 +29,6 @@ header {
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-
 .navbar {
     display: flex;
     padding: 22px 0;
@@ -84,6 +83,9 @@ header {
 }
 
 /*smart inventory solutions*/
+.heading{
+  margin-left: 80px;
+}
 .navbar .links a {
     color: #050404;
     font-size: 1.5rem;
@@ -94,20 +96,62 @@ header {
 
 
 .navbar .login-btn {
-    border: none;
+  border-color: #345aff;
     outline: none;
     background: #ffffff;
     color: #040708;
     font-size: 1rem;
     font-weight: 600;
-    padding: 10px 18px;
+    padding: 6px 18px;
     border-radius: 3px;
     cursor: pointer;
     transition: 0.15s ease;
 }
 
 .navbar .login-btn:hover {
-    background: #345aff;
+    background: #4ba1fc;
+}
+
+.material-symbols-outlined{
+  color: #345aff;
+}
+
+.home-link{
+  margin-right: 6px;
+  margin-bottom: 3px;
+}
+
+.notification-link{
+  margin-right: 6px;
+  margin-bottom: 3px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-right: 6px;
+}
+
+.search-container input[type="text"] {
+  padding: 6px;
+  font-size: 16px;
+  border-color: #345aff;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-container button {
+  padding: 7px 10px;
+  background-color: #ffffff;
+  color: #fff;
+  border-color: #345aff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  height: 39.7px;
+}
+
+.search-container button:hover {
+  background-color: #4ba1fc;
 }
 
 @media (max-width: 950px) {
@@ -377,6 +421,7 @@ form button:hover {
 .header-content {
     display: flex;
     align-items: flex-end; /* Vertically center content */
+    margin-right: 10px;
   }
 
   .links {

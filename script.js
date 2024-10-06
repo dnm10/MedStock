@@ -7,6 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const hidePopupBtn = formPopup.querySelector(".close-btn");
     const signupLoginLink = formPopup.querySelectorAll(".bottom-link a");
 
+    function searchFunction() {
+        const searchQuery = document.getElementById("search").value;
+        if (searchQuery) {
+          alert("Searching for: " + searchQuery);
+          // You can replace the alert with actual search functionality.
+        } else {
+          alert("Please enter a search query.");
+        }
+      }
     // Show mobile menu
     hamburgerBtn.addEventListener("click", () => {
         navbarMenu.classList.toggle("show-menu");
@@ -14,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Hide mobile menu
     hideMenuBtn.addEventListener("click", () => hamburgerBtn.click());
-
+    
     // Show login popup
     showPopupBtn.addEventListener("click", () => {
         document.body.classList.toggle("show-popup");
@@ -31,78 +40,95 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Function to validate email
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
+    // Email validation regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Function to validate password (at least 6 characters, contains uppercase, lowercase, and a digit)
+    // Function to validate password
     function validatePassword(password) {
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/; // At least 6 characters, 1 uppercase, 1 lowercase, 1 digit
-        return passwordRegex.test(password);
+        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/.test(password);
     }
 
-    // LOGIN FORM VALIDATION
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+    // Function to show error messages
+    function showError(inputField, message) {
+        const errorElement = inputField.nextElementSibling;
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.style.color = "red";
+        }
+    }
 
-        const loginEmail = document.getElementById('loginEmail').value.trim();
-        const loginPassword = document.getElementById('loginPassword').value.trim();
+    // Function to clear error messages
+    function clearError(inputField) {
+        const errorElement = inputField.nextElementSibling;
+        if (errorElement) {
+            errorElement.textContent = "";
+        }
+    }
 
-        // Check if email is valid
-        if (!validateEmail(loginEmail)) {
-            alert("Please enter a valid email address.");
-            return;
+    // Validate Login Form
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        
+        const email = document.getElementById("loginEmail");
+        const password = document.getElementById("loginPassword");
+        let valid = true;
+
+        clearError(email);
+        clearError(password);
+
+        if (!emailPattern.test(email.value)) {
+            showError(email, "Please enter a valid email address.");
+            valid = false;
         }
 
-        // Check if password is valid
-        if (!validatePassword(loginPassword)) {
-            alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.");
-            return;
+        if (!validatePassword(password.value)) {
+            showError(password, "Password must be at least 6 characters.");
+            valid = false;
         }
 
-        // If both fields are valid, submit the form (you can replace this with actual logic)
-        alert("Login form submitted successfully!");
-        // You can redirect or submit the form here
+        if (valid) {
+            alert("Login successful!");
+        }
     });
 
-    // SIGNUP FORM VALIDATION
-    document.getElementById('signupForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent form submission
+    // Validate Signup Form
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+        event.preventDefault();
 
-        const fullName = document.getElementById('fullName').value.trim();
-        const signupEmail = document.getElementById('signupEmail').value.trim();
-        const signupPassword = document.getElementById('signupPassword').value.trim();
-        const policyChecked = document.getElementById('policy').checked;
+        const fullName = document.getElementById("fullName");
+        const email = document.getElementById("signupEmail");
+        const password = document.getElementById("signupPassword");
+        const policy = document.getElementById("policy");
+        let valid = true;
 
-        // Check if full name is provided
-        if (fullName === "") {
-            alert("Please enter your full name.");
-            return;
+        clearError(fullName);
+        clearError(email);
+        clearError(password);
+
+        if (fullName.value.length < 5) {
+            showError(fullName, "Name should be at least 5 characters.");
+            valid = false;
         }
 
-        // Check if email is valid
-        if (!validateEmail(signupEmail)) {
-            alert("Please enter a valid email address.");
-            return;
+        if (!emailPattern.test(email.value)) {
+            showError(email, "Please enter a valid email address.");
+            valid = false;
         }
 
-        // Check if password is valid
-        if (!validatePassword(signupPassword)) {
-            alert("Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.");
-            return;
+        if (!validatePassword(password.value)) {
+            showError(password, "Password must be at least 6 characters long, include one uppercase letter, one number, and one special character.");
+            valid = false;
         }
 
-        // Check if Terms and Conditions are accepted
-        if (!policyChecked) {
+        if (!policy.checked) {
             alert("You must agree to the Terms & Conditions.");
-            return;
+            valid = false;
         }
 
-        // If all fields are valid, submit the form (you can replace this with actual logic)
-        alert("Signup form submitted successfully!");
-        // You can redirect or submit the form here
+        if (valid) {
+            alert("Signup successful!");
+        }
     });
 
     // Sidebar toggle functionality

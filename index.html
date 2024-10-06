@@ -25,20 +25,26 @@
 </head>
     <header>
         <nav class="navbar">
+            <h2 class="heading">Smart Inventory Solutions!</h2>
             <span class="hamburger-btn material-symbols-rounded">menu</span>
            
             <ul class="links">
                 <span class="close-btn material-symbols-rounded">close</span>
-                <li><a href="#">Smart Inventory Solutions!</a></li>
+          
             </ul>
             
             
             <div class="header-content">
+              <a href="#" class="home-link">
+                <span class="material-symbols-outlined"> home </span>
+              </a>
               <!-- Other content on the left (like logo or menu) -->
-          
+              <div class="search-container">
+                <input type="text" id="search" placeholder="Search..." />
+                <button onclick="searchFunction()">🔍</button>
+              </div>
               <a href="#" class="notification-link">
                 <span class="material-symbols-outlined"> notifications </span>
-                
               </a>
             </div>
 
@@ -61,7 +67,7 @@
                   <h2>LOGIN</h2>
                   <form id="loginForm">
                       <div class="input-field">
-                          <input type="text" id="loginEmail" required>
+                          <input type="email" id="loginEmail" required>
                           <label>Email</label>
                       </div>
                       <div class="input-field">
@@ -93,7 +99,7 @@
                         <label>Full Name</label>
                       </div>
                       <div class="input-field">
-                          <input type="text" id="signupEmail" required>
+                          <input type="email" id="signupEmail" required>
                           <label>Enter your email</label>
                       </div>
                       <div class="input-field">
@@ -239,9 +245,6 @@
             </ul>
             <ul class="box">
                 <li><a href="#">Profile</a></li>
-                <li><a href="#">My account</a></li>
-                <li><a href="#">Preferences</a></li>
-                <li><a href="#">Purchase</a></li>
             </ul>
         </div>
     </div>
