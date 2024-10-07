@@ -315,11 +315,14 @@ form .input-field {
     background: none;
     outline: none;
     font-size: 0.95rem;
-    padding: 0 15px;
+    padding: 10px 15px;
     border: 1px solid #717171;
     border-radius: 3px;
 }
 
+#loginEmail{
+  padding-top: 25px;
+}
 .input-field input:focus {
     border: 1px solid #4e6fc4;
 }
@@ -333,6 +336,16 @@ form .input-field {
     pointer-events: none;
     transition: 0.2s ease;
 }
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label,
+.input-field input:valid + label {
+    transform: translateY(-120%);
+    color: #00bcd4;
+    font-size: 0.75rem;
+    padding-top: 4px;
+}
+
 
 .input-field input:is(:focus, :valid) {
     padding: 16px 15px 0;
