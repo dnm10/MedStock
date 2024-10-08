@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MedStock/User-Page</title>
+  <!-- Linking Google Font Link For Icons -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="adminPage.css" />
+</head>
+<body>
+
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0">
+    
+</head>
+    <header>
+        <nav class="navbar">
+            <h2 class="heading">Smart Inventory Solutions!</h2>
+            <span class="hamburger-btn material-symbols-rounded">menu</span>
+           
+            <ul class="links">
+                <span class="close-btn material-symbols-rounded">close</span>
+          
+            </ul>
+            
+            
+            <div class="header-content">
+              <a href="#" class="home-link">
+                <span class="material-symbols-outlined"> home </span>
+              </a>
+            </div>
+
+            <button class="login-btn">LOGIN</button>
+        </nav>
+    </header>
+    <form>
+        <div class="blur-bg"></div>
+        <div class="form-popup">
+            <span class="close-btn material-symbols-rounded">close</span>
+            
+            <!-- LOGIN FORM -->
+            <div class="form-box login">
+                <div class="form-details">
+                    <div>
+                        <img src="mslogoed.png" alt="logo"/>
+                    </div>
+                </div>
+                <div class="form-content">
+                    <h2>LOGIN</h2>
+                    <form id="loginForm">
+                        <div class="input-field">
+                            <input type="email" id="loginEmail" required placeholder=" ">
+                            <label>Email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id="loginPassword" required placeholder=" ">
+                            <label>Password</label>
+                        </div>
+                        <!-- Login Type Selector -->
+                        <div class="login-type">
+                            <input type="radio" id="loginAdmin" name="loginType" value="Admin" required>
+                            <label for="loginAdmin">Login as Admin</label>
+                            <input type="radio" id="loginUser" name="loginType" value="User" required>
+                            <label for="loginUser">Login as User</label>
+                        </div>
+                        <a href="#" class="forgot-pass-link">Forgot password?</a>
+                        <button type="submit">Log In</button>
+                    </form>
+                    <div class="bottom-link">
+                        Don't have an account?
+                        <a href="#" id="signup-link">Register</a>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- SIGNUP FORM -->
+            <div class="form-box signup">
+                <div class="form-details">
+                    <div>
+                        <img src="mslogoed.png" alt="logo"/>
+                    </div>
+                </div>
+                <div class="form-content">
+                    <h2>SIGNUP</h2>
+                    <form id="signupForm">
+                        <div class="input-field">
+                            <input type="text" id="fullName" required placeholder=" ">
+                            <label>Enter your Full Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="email" id="signupEmail" required placeholder=" ">
+                            <label>Enter your email</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="password" id="signupPassword" required placeholder=" ">
+                            <label>Create password</label>
+                        </div>
+                        <div class="signup-type">
+                          <input type="radio" id="signupAdmin" name="signup-type" value="Admin" required>
+                          <label for="signupAdmin">Register as Admin</label>
+                          <input type="radio" id="signupUser" name="signup-type" value="User" required>
+                          <label for="signupAdmin">Register as User</label>
+                      </div>
+                        <div class="policy-text">
+                            <input type="checkbox" id="policy" required>
+                            <label for="policy">
+                                I agree to the
+                                <a href="#" class="option">Terms & Conditions</a>
+                            </label>
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                    <div class="bottom-link">
+                        Already have an account? 
+                        <a href="#" id="login-link">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <aside class="sidebar">
+        <div class="sidebar-header">
+          <img src="mslogo.png" alt="logo"/>
+          <h2><b>MedStock</b></h2>
+        </div>
+        <ul class="sidebar-links">
+            <li>
+                <a href="billing.html"><span class="material-symbols-outlined"> receipt_long </span>Billing</a>
+            </li>
+          <li>
+            <a href="profile.html"><span class="material-symbols-outlined"> account_circle </span>Profile</a>
+          </li>
+          <li>
+            <a href="settings.html"><span class="material-symbols-outlined"> settings </span>Settings</a>
+          </li>
+          <li>
+            <a href="logout.html"><span class="material-symbols-outlined"> logout </span>Logout</a>
+          </li>
+        </ul>
+      </aside>
+      <section class="hero-section">
+        <div class="content">
+          <h2>Manage Your Medical Inventory with Ease</h2>
+          <h3>"Monitor stock levels, manage orders, and stay updated with notifications"</h3>
+        </div>
+        <div class="hero-box">
+          <img src="hp1.jpg" alt="heroimg" class="hero-image">
+        </div>
+      </section>
+    
+    
+      <section class="first">
+        <div class="first-content animated text-animated">
+            <div class="capabilities">
+                <h2>Overview of System Capabilities:</h2>
+            </div>
+            <h3>
+                <ul class="points" type="disk">
+                    <li>Inventory Management: Track stock levels, manage expiries, and keep medicines up to date.</li>
+                    <li>Order Tracking: Simplified system to reorder supplies and check their status.</li>
+                    <li>Notifications & Alerts: Get alerts for low stock or expiring items to take timely action.</li>
+                    <li>Reporting Tools: View detailed reports on your inventory and sales trends.</li>
+                </ul>
+            </h3>
+        </div>
+        <div class="image1-box animated image-animated">
+            <img src="hp2.jpg" alt="img1" class="first-image">
+        </div>
+    </section>
+    
+      
+    
+      <section class="third">
+        <div class="third-content">
+          <div classs="benefits">
+              <h2>User Benefits:</h2>
+          </div>
+          <h3>
+              <ul class="points1" type="disk">
+                <li>Simplified Stock Management: Automate inventory tracking.</li>
+                <li>Stay Informed: Real-time notifications for expiring or low stock.</li>
+                <li>Save Time: Reduce manual effort with automated updates and reports.</li>
+              </ul>
+          </h3>
+          </div>
+        <div class="image3-box">
+          <img src="hp3.jpg" alt="img1" class="third-image">
+        </div>
+      </section>
+    
+      <footer>
+        <div class="content">
+            <div class="top">
+                <div class="logo-details">
+                  <img src="mslogo.png" alt="logo">
+                    <span class="logo_name">MedStock</span>
+                </div>
+            </div>
+            <div class="link-boxes">
+                <ul class="box">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="..\contactus\contact.html">Contact us</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Get started</a></li>
+                </ul>
+                <ul class="box">
+                    <li><a href="#">Billing</a></li>
+                </ul>
+                <ul class="box">
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+      
+    </footer>
+
+    <script src="adminPage.js" defer></script>
+</body>
+</html>
