@@ -163,14 +163,3 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 });
 
-// ** Ensure access control on the admin page **
-// This code should be placed at the top of your adminPage.js or in a separate script
-document.addEventListener("DOMContentLoaded", () => {
-    const loginType = localStorage.getItem('loginType');
-
-    // Check if user is authenticated and is an admin
-    if (!loginType || loginType !== "Admin") {
-        window.location.href = "main.html"; // Redirect to main page if not authorized
-    }
-
-});
