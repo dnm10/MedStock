@@ -60,7 +60,7 @@
           <div class="form-box login">
               <div class="form-details">
                   <div>
-                      <img src="mslogoed.png" alt="logo"/>
+                      <img src="medlogo.png" alt="logo"/>
                   </div>
               </div>
               <div class="form-content">
@@ -131,7 +131,7 @@
           <div class="form-box signup">
               <div class="form-details">
                   <div>
-                      <img src="mslogoed.png" alt="logo"/>
+                      <img src="medlogo.png" alt="logo"/>
                   </div>
               </div>
               <div class="form-content">
@@ -156,24 +156,7 @@
                         <input type="radio" id="signupUser" name="signup-type" value="User" required>
                         <label for="signupUser">Register as User</label>
                     </div>
-                    
-                    <script>
-                        // Function to handle redirection based on the selected radio button
-                        function redirectToPage() {
-                            const adminRadio = document.getElementById('signupAdmin');
-                            const userRadio = document.getElementById('signupUser');
-                    
-                            if (adminRadio.checked) {
-                                window.location.href = 'adminPage.html'; // Replace with your actual admin page URL
-                            } else if (userRadio.checked) {
-                                window.location.href = 'userpage.html'; // Replace with your actual user page URL
-                            }
-                        }
-                    
-                        // Add event listeners to radio buttons
-                        document.getElementById('signupAdmin').addEventListener('change', redirectToPage);
-                        document.getElementById('signupUser').addEventListener('change', redirectToPage);
-                    </script>
+                  
                     
                       <div class="policy-text">
                           <input type="checkbox" id="policy" required>
@@ -184,6 +167,24 @@
                       </div>
                       <button type="submit">Sign Up</button>
                   </form>
+                    
+                  <script>
+                    // Function to handle redirection based on the selected radio button
+                    function redirectToPage() {
+                        const adminRadio = document.getElementById('signupAdmin');
+                        const userRadio = document.getElementById('signupUser');
+                
+                        if (adminRadio.checked) {
+                            window.location.href = 'adminPage.html'; // Replace with your actual admin page URL
+                        } else if (userRadio.checked) {
+                            window.location.href = 'userpage.html'; // Replace with your actual user page URL
+                        }
+                    }
+                
+                    // Add event listeners to radio buttons
+                    document.getElementById('signupAdmin').addEventListener('change', redirectToPage);
+                    document.getElementById('signupUser').addEventListener('change', redirectToPage);
+                </script>
                   <div class="bottom-link">
                       Already have an account? 
                       <a href="#" id="login-link">Login</a>
@@ -195,7 +196,7 @@
   
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="mslogo.png" alt="logo"/>
+      <img src="medlogo.png" alt="logo"/>
       <h2><b>MedStock</b></h2>
     </div>
     <ul class="sidebar-links">
@@ -293,14 +294,14 @@
     <div class="content">
         <div class="top">
             <div class="logo-details">
-              <img src="mslogo.png" alt="logo">
+              <img src="medlogo.png" alt="logo">
                 <span class="logo_name">MedStock</span>
             </div>
         </div>
         <div class="link-boxes">
             <ul class="box">
                 <li><a href="#">Home</a></li>
-                <li><a href="..\contactus\contact.html">Contact us</a></li>
+                <li><a href="contact.html">Contact us</a></li>
                 <li><a href="#">About us</a></li>
                 <li><a href="#">Get started</a></li>
             </ul>
