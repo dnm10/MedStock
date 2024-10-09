@@ -18,8 +18,8 @@ function addToBill() {
     newRow.innerHTML = `
         <td>${medicineName}</td>
         <td>${quantity}</td>
-        <td>$${price.toFixed(2)}</td>
-        <td>$${total.toFixed(2)}</td>
+        <td>Rs ${price.toFixed(2)}</td>
+        <td>RS ${total.toFixed(2)}</td>
     `;
     tableBody.appendChild(newRow);
 
@@ -78,10 +78,10 @@ function generateInvoice() {
                         </tr>
                     </thead>
                     <tbody id="invoice-body">
-                        ${getInvoiceItems()}
+                       Rs{getInvoiceItems()}
                     </tbody>
                 </table>
-                <h3>Total Amount: $${totalAmount.toFixed(2)}</h3>
+                <h3>Total Amount: Rs ${totalAmount.toFixed(2)}</h3>
             </body>
         </html>
     `);
