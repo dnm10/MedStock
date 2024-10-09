@@ -152,9 +152,29 @@
                       <div class="signup-type">
                         <input type="radio" id="signupAdmin" name="signup-type" value="Admin" required>
                         <label for="signupAdmin">Register as Admin</label>
+                    
                         <input type="radio" id="signupUser" name="signup-type" value="User" required>
-                        <label for="signupAdmin">Register as User</label>
+                        <label for="signupUser">Register as User</label>
                     </div>
+                    
+                    <script>
+                        // Function to handle redirection based on the selected radio button
+                        function redirectToPage() {
+                            const adminRadio = document.getElementById('signupAdmin');
+                            const userRadio = document.getElementById('signupUser');
+                    
+                            if (adminRadio.checked) {
+                                window.location.href = 'adminPage.html'; // Replace with your actual admin page URL
+                            } else if (userRadio.checked) {
+                                window.location.href = 'userpage.html'; // Replace with your actual user page URL
+                            }
+                        }
+                    
+                        // Add event listeners to radio buttons
+                        document.getElementById('signupAdmin').addEventListener('change', redirectToPage);
+                        document.getElementById('signupUser').addEventListener('change', redirectToPage);
+                    </script>
+                    
                       <div class="policy-text">
                           <input type="checkbox" id="policy" required>
                           <label for="policy">
