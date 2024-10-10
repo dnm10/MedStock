@@ -95,7 +95,7 @@ header {
 }
 
 
-.navbar .login-btn {
+.navbar .signup-btn {
   border-color: #345aff;
     outline: none;
     background: #ffffff;
@@ -108,7 +108,7 @@ header {
     transition: 0.15s ease;
 }
 
-.navbar .login-btn:hover {
+.navbar .signup-btn:hover {
     background: #4ba1fc;
 }
 
@@ -202,7 +202,7 @@ header {
       color: #4259a5;
   }
 
-  .navbar .login-btn {
+  .navbar .signup-btn {
       font-size: 0.9rem;
       padding: 7px 10px;
   }
