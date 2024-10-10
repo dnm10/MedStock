@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MedStock/Admi-Page</title>
+  <title>MedStock/Admin-Page</title>
   <!-- Linking Google Font Link For Icons -->
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -39,7 +39,7 @@
               </a>
             </div>
 
-            <button class="login-btn">LOGIN</button>
+            <button class="signup-btn">SIGNUP</button>
         </nav>
     </header>
     <form>
@@ -125,24 +125,7 @@
                       </div>
                       <button type="submit">Sign Up</button>
                   </form>
-                    
-                  <script>
-                    // Function to handle redirection based on the selected radio button
-                    function redirectToPage() {
-                        const adminRadio = document.getElementById('signupAdmin');
-                        const userRadio = document.getElementById('signupUser');
-                
-                        if (adminRadio.checked) {
-                            window.location.href = '../adminPage.html'; // Replace with your actual admin page URL
-                        } else if (userRadio.checked) {
-                            window.location.href = '/Admin&User/userPage.html'; // Replace with your actual user page URL
-                        }
-                    }
-                
-                    // Add event listeners to radio buttons
-                    document.getElementById('signupAdmin').addEventListener('change', redirectToPage);
-                    document.getElementById('signupUser').addEventListener('change', redirectToPage);
-                </script>
+
                   <div class="bottom-link">
                       Already have an account? 
                       <a href="#" id="login-link">Login</a>
