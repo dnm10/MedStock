@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eaf4ff; /* Light blue background */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    color: #0056b3; /* Darker blue for headings */
+    text-align: center; /* Center the heading text */
+    margin-bottom: 20px; /* Add some margin below the heading */
+}
+
+
+.signup {
+    background-color: #007bff; /* Bright blue for buttons */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.signup:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+.controls button {
+    margin-right: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bright blue for buttons */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.controls button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-sort {
+    flex-grow: 1;
+}
+
+.search-sort input {
+    padding: 15px; /* Increased padding for more height */
+    width: 300px; /* Set a fixed width for the search bar */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px; /* Increased font size for better visibility */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.search-sort input:focus {
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow */
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+}
+
+.sort-options select {
+    margin-left: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.sort-options select:focus {
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow */
+}
+
+.sort-options button {
+    margin-left: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bright blue for buttons */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.sort-options button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff; /* Bright blue for headers */
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for headers */
+}
+
+table tbody tr:hover {
+    background-color: #f0f8ff; /* Very light blue on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+table tbody td {
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+table tbody td:hover {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow on hover */
+}
+table td button {
+    margin: 0 5px; /* Add some spacing between buttons */
+    padding: 5px 10px; /* Padding for buttons */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Bright blue */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+table td button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+
+

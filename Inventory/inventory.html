@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Overview</title>
+    <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Inventory Overview</h1>
+            <button class="signup">SIGNUP</button>
+        </header>
+
+        <div class="controls">
+            <button id="addItemBtn">Add New Item</button>
+            <button id="updateItemBtn">Update Item</button>
+            <button id="removeItemBtn">Remove Item</button>
+            <button id="reportBtn">Inventory Report</button>
+        </div>
+
+        <div class="top-row">
+            <div class="search-sort">
+                <input type="text" id="searchBox" placeholder="Search...">
+            </div>
+            <div class="sort-options">
+                <label>Sort By: </label>
+                <select id="sortOptions">
+                    <option value="name">Name</option>
+                    <option value="category">Category</option>
+                    <option value="quantity">Quantity</option>
+                    <option value="expiryDate">Expiry Date</option>
+                    <option value="supplier">Supplier</option>
+                </select>
+                <button id="sortBtn">Sort</button>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Item Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Expiry Date</th>
+                    <th>Supplier</th>
+                    <th>Actions</th> <!-- New column for actions -->
+                </tr>
+            </thead>
+            <tbody id="inventoryList">
+                <!-- Inventory items will be populated here -->
+                <tr>
+                    <td>1</td>
+                    <td>Sample Item</td>
+                    <td>Category A</td>
+                    <td>10</td>
+                    <td>2024-12-31</td>
+                    <td>Supplier X</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sample Item 2</td>
+                    <td>Category B</td>
+                    <td>20</td>
+                    <td>2025-01-15</td>
+                    <td>Supplier Y</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sample Item 3</td>
+                    <td>Category C</td>
+                    <td>5</td>
+                    <td>2024-11-30</td>
+                    <td>Supplier Z</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Sample Item 4</td>
+                    <td>Category D</td>
+                    <td>15</td>
+                    <td>2024-10-20</td>
+                    <td>Supplier W</td>
+                    <td>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <!-- More items can be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="inventory.js"></script>
+</body>
+</html>
+
+
+
+
