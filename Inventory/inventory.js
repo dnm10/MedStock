@@ -1,3 +1,4 @@
+// Event listeners for sort and search actions
 document.getElementById('sortBtn').addEventListener('click', () => {
     const sortBy = document.getElementById('sortOptions').value;
     sortInventory(sortBy);
@@ -11,7 +12,7 @@ document.getElementById('searchBox').addEventListener('input', (event) => {
 // Function to filter inventory items based on search term
 function filterInventory(searchTerm) {
     const inventoryList = document.getElementById('inventoryList');
-    inventoryList.innerHTML = ''; // Clear existing rows
+    inventoryList.innerHTML = ''; 
 
     const filteredInventory = inventory.filter(item => {
         return (
@@ -27,30 +28,54 @@ function filterInventory(searchTerm) {
 }
 
 // Function to sort inventory items based on selected criteria
-function sortInventory(sortBy) {
+function sortInventory(sortBy, order = 'asc') {
     const sortedInventory = [...inventory]; // Create a copy of the inventory array to sort
 
     switch (sortBy) {
         case 'name':
-            sortedInventory.sort((a, b) => a.name.localeCompare(b.name));
+            sortedInventory.sort((a, b) => {
+                return order === 'asc' 
+                    ? a.name.localeCompare(b.name)
+                    : b.name.localeCompare(a.name);
+            });
             break;
         case 'category':
-            sortedInventory.sort((a, b) => a.category.localeCompare(b.category));
+            sortedInventory.sort((a, b) => {
+                return order === 'asc' 
+                    ? a.category.localeCompare(b.category)
+                    : b.category.localeCompare(a.category);
+            });
             break;
         case 'quantity':
-            sortedInventory.sort((a, b) => a.quantity - b.quantity);
+            // Sort by quantity, ignoring categories
+            sortedInventory.sort((a, b) => {
+                return order === 'asc' 
+                    ? a.quantity - b.quantity // Ascending order
+                    : b.quantity - a.quantity; // Descending order
+            });
             break;
         case 'expiryDate':
-            sortedInventory.sort((a, b) => new Date(a.expiryDate) - new Date(b.expiryDate));
+            sortedInventory.sort((a, b) => {
+                const dateA = new Date(a.expiryDate);
+                const dateB = new Date(b.expiryDate);
+                return order === 'asc' 
+                    ? dateA - dateB 
+                    : dateB - dateA;
+            });
             break;
         case 'supplier':
-            sortedInventory.sort((a, b) => a.supplier.localeCompare(b.supplier));
+            sortedInventory.sort((a, b) => {
+                return order === 'asc' 
+                    ? a.supplier.localeCompare(b.supplier)
+                    : b.supplier.localeCompare(a.supplier);
+            });
             break;
         default:
+            console.warn("Unknown sort option:", sortBy);
             break;
     }
 
-    displayInventory(sortedInventory);
+    displayInventory(sortedInventory); // Display the sorted inventory
 }
 
 // Function to display the inventory items in the table
@@ -87,82 +112,7 @@ displayInventory(inventory);
 
 // JavaScript for Search, Sort, and Edit/Delete functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const deleteButtons = document.querySelectorAll('.delete-btn');
-    const editButtons = document.querySelectorAll('.edit-btn');
-    const sortButton = document.getElementById('sortBtn');
-    const searchBox = document.getElementById('searchBox');
-    const inventoryList = document.getElementById('inventoryList');
+    // No need for separate delete and edit button listeners in the main logic, since we're dynamically adding rows
 
-    // Search functionality
-    searchBox.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const rows = inventoryList.getElementsByTagName('tr');
-        Array.from(rows).forEach(row => {
-            const cells = row.getElementsByTagName('td');
-            let found = false;
-            Array.from(cells).forEach(cell => {
-                if (cell.innerText.toLowerCase().includes(searchTerm)) {
-                    found = true;
-                }
-            });
-            row.style.display = found ? '' : 'none'; // Show or hide the row
-        });
-    });
-
-    // Sort functionality
-    sortButton.addEventListener('click', function() {
-        const selectedOption = document.getElementById('sortOptions').value;
-        const rows = Array.from(inventoryList.getElementsByTagName('tr'));
-        const indexMap = {
-            name: 1,
-            category: 2,
-            quantity: 3,
-            expiryDate: 4,
-            supplier: 5,
-        };
-        const index = indexMap[selectedOption];
-
-        // Sort the rows based on selected criteria
-        rows.sort((a, b) => {
-            const cellA = a.getElementsByTagName('td')[index].innerText.toLowerCase();
-            const cellB = b.getElementsByTagName('td')[index].innerText.toLowerCase();
-            if (cellA < cellB) return -1;
-            if (cellA > cellB) return 1;
-            return 0;
-        });
-
-        // Clear the table and append sorted rows
-        inventoryList.innerHTML = '';
-        rows.forEach(row => {
-            if (row.style.display !== 'none') {
-                inventoryList.appendChild(row);
-            }
-        });
-    });
-
-    // Delete functionality
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const row = this.parentElement.parentElement; // Get the row
-            row.remove(); // Remove the row from the table
-            alert('Item deleted successfully!');
-        });
-    });
-
-    // Edit functionality
-    editButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const itemName = this.parentElement.parentElement.cells[1].innerText; // Get the item name
-            alert(`Edit functionality for ${itemName} not implemented yet.`);
-            // Here you can add code to handle editing the item
-        });
-    });
+    // Event listeners can be attached directly in the display function if needed
 });
-
-
-
-
-
-
-
-
