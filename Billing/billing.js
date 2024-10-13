@@ -1,4 +1,5 @@
 let totalAmount = 0;
+let billNumber = Math.floor(Math.random() * 1000000); // Generates a random bill number
 
 function addToBill() {
     const medicineName = document.getElementById('medicine-name').value;
@@ -18,8 +19,8 @@ function addToBill() {
     newRow.innerHTML = `
         <td>${medicineName}</td>
         <td>${quantity}</td>
-        <td>Rs ${price.toFixed(2)}</td>
-        <td>RS ${total.toFixed(2)}</td>
+        <td>₹${price.toFixed(2)}</td>
+        <td>₹${total.toFixed(2)}</td>
     `;
     tableBody.appendChild(newRow);
 
@@ -32,6 +33,7 @@ function addToBill() {
 }
 
 function generateInvoice() {
+    const date = new Date();
     const invoiceWindow = window.open('', '_blank', 'width=600,height=400');
     invoiceWindow.document.write(`
         <html>
@@ -64,24 +66,33 @@ function generateInvoice() {
                         text-align: right;
                         color: #333;
                     }
+                    .bill-info {
+                        text-align: left;
+                        margin-bottom: 20px;
+                    }
                 </style>
             </head>
             <body>
                 <h1>Invoice</h1>
+                <div class="bill-info">
+                    <p>Bill No: ${billNumber}</p>
+                    <p>Date: ${date.toLocaleDateString()}</p>
+                    <p>Time: ${date.toLocaleTimeString()}</p>
+                </div>
                 <table>
                     <thead>
                         <tr>
                             <th>Medicine</th>
                             <th>Quantity</th>
-                            <th>Price per Unit</th>
-                            <th>Total</th>
+                            <th>Price per Unit (₹)</th>
+                            <th>Total (₹)</th>
                         </tr>
                     </thead>
                     <tbody id="invoice-body">
-                       Rs{getInvoiceItems()}
+                        ${getInvoiceItems()}
                     </tbody>
                 </table>
-                <h3>Total Amount: Rs ${totalAmount.toFixed(2)}</h3>
+                <h3>Total Amount: ₹${totalAmount.toFixed(2)}</h3>
             </body>
         </html>
     `);
@@ -102,4 +113,5 @@ function getInvoiceItems() {
     }
     return items;
 }
+
 

@@ -74,6 +74,41 @@
                         <a href="#" class="forgot-pass-link">Forgot password?</a>
                         <button type="submit">Log In</button>
                     </form>
+                    <script>
+                        // Function to redirect based on the selected login type
+                        function redirectBasedOnLoginType() {
+                            const loginType = document.querySelector('input[name="loginType"]:checked');
+                            if (loginType) {
+                                if (loginType.value === "User") {
+                                    window.location.href = 'userPage.html'; // Redirect to admin page
+                                } else {
+                                    window.location.href = 'adminPage.html'; // Redirect to user page
+                                }
+                            }
+                        }
+                
+                        // Event listener for radio button selection
+                        const loginOptions = document.querySelectorAll('input[name="loginType"]');
+                        loginOptions.forEach(option => {
+                            option.addEventListener('change', redirectBasedOnLoginType);
+                        });
+                
+                        // Event listener for form submission
+                        document.getElementById('loginForm').addEventListener('submit', function(event) {
+                            event.preventDefault(); // Prevent default form submission
+                
+                            // Get the selected login type
+                            const loginType = document.querySelector('input[name="loginType"]:checked').value;
+                            const username = document.getElementById('loginUsername').value;
+                            const password = document.getElementById('loginPassword').value;
+                
+                            // Perform your validation or authentication logic here
+                            console.log(`Login Type: ${loginType}, Username: ${username}, Password: ${password}`);
+                
+                            // Redirect to the appropriate page
+                            redirectBasedOnLoginType();
+                        });
+                    </script>
                     <div class="bottom-link">
                         Don't have an account?
                         <a href="#" id="signup-link">Register</a>
@@ -118,6 +153,24 @@
                         </div>
                         <button type="submit">Sign Up</button>
                     </form>
+                        
+                  <script>
+                    // Function to handle redirection based on the selected radio button
+                    function redirectToPage() {
+                        const adminRadio = document.getElementById('signupAdmin');
+                        const userRadio = document.getElementById('signupUser');
+                
+                        if (adminRadio.checked) {
+                            window.location.href = 'userPage.html'; // Replace with your actual user page URL
+                        } else if (userRadio.checked) {
+                            window.location.href = 'adminpage.html'; // Replace with your actual user page URL
+                        }
+                    }
+                
+                    // Add event listeners to radio buttons
+                    document.getElementById('signupAdmin').addEventListener('change', redirectToPage);
+                    document.getElementById('signupUser').addEventListener('change', redirectToPage);
+                </script>
                     <div class="bottom-link">
                         Already have an account? 
                         <a href="#" id="login-link">Login</a>
@@ -133,7 +186,7 @@
         </div>
         <ul class="sidebar-links">
             <li>
-                <a href="billing.html"><span class="material-symbols-outlined"> receipt_long </span>Billing</a>
+                <a href="../Billing/billing.html"><span class="material-symbols-outlined"> receipt_long </span>Billing</a>
             </li>
           <li>
             <a href="profile.html"><span class="material-symbols-outlined"> account_circle </span>Profile</a>

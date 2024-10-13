@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+    <!-- Link to CSS -->
+    <link rel="report-details" href="report.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory System</h1>
+
+        <!-- Inventory Period -->
+        <div class="report-details">
+            <label for="startDate">From:</label>
+            <input type="date" id="startDate" value="2024-01-01">
+            <label for="endDate">To:</label>
+            <input type="date" id="endDate" value="2024-01-31">
+            <p>Total Items in Inventory: <span id="totalItems">150</span></p>
+            <p>Total Categories: <span id="totalCategories">10</span></p>
+        </div>
+
+        <!-- Stock Levels Table -->
+        <h2>Current Stock Levels</h2>
+        <form id="stockForm">
+            <table id="stockLevelsTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="stockLevels">
+                    <!-- Pre-filled rows for demonstration -->
+                    <tr>
+                        <td>Item A</td>
+                        <td>Category 1</td>
+                        <td>100</td>
+                        <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>Item B</td>
+                        <td>Category 2</td>
+                        <td>50</td>
+                        <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addStockRow()">Add Item</button>
+        </form>
+
+        <!-- Low Stock Alerts Table -->
+        <h2>Low Stock Alerts</h2>
+        <form id="lowStockForm">
+            <table id="lowStockTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Current Stock</th>
+                        <th>Minimum Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="lowStock">
+                    <!-- Pre-filled rows for demonstration -->
+                    <tr>
+                        <td>Item C</td>
+                        <td>Category 3</td>
+                        <td>5</td>
+                        <td>10</td>
+                        <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addLowStockRow()">Add Low Stock Item</button>
+        </form>
+
+        <!-- Expired Items Table -->
+        <h2>Expired Items</h2>
+        <form id="expiredItemsForm">
+            <table id="expiredItemsTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Expiry Date</th>
+                        <th>Batch No.</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="expiredItems">
+                    <!-- Pre-filled rows for demonstration -->
+                    <tr>
+                        <td>Item D</td>
+                        <td>Category 1</td>
+                        <td>2024-12-22</td>
+                        <td>B001</td>
+                        <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" onclick="addExpiredItemRow()">Add Expired Item</button>
+        </form>
+
+        <!-- Recommendations -->
+        <h2>Recommendations</h2>
+        <ul id="recommendations">
+            <li>Check low stock items and reorder.</li>
+            <li>Remove expired items from inventory.</li>
+        </ul>
+
+        <!-- Actions -->
+        <div class="actions">
+            <button type="button" onclick="generateRecommendations()">Generate Recommendations</button>
+            <button type="button" onclick="exportToPDF()">Export to PDF</button>
+            <button type="button" onclick="exportToExcel()">Export to Excel</button>
+            <button type="button" onclick="printReport()">Print Report</button>
+        </div>
+    </div>
+
+    <!-- Link to JavaScript -->
+    <script src="report.js"></script>
+</body>
+</html>
