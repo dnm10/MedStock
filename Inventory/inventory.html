@@ -53,7 +53,56 @@
         </div>
     </div>
 
+        <!-- Modal for Remove Item -->
+<div id="removeItemModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2>Remove Item</h2>
+        <form id="removeItemForm">
+            <label for="removeItemSelect">Select Item to Remove:</label>
+            <select id="removeItemSelect" required>
+                <option value="">--Select Item--</option>
+                <!-- Options will be populated by JavaScript -->
+            </select><br><br>
+
+            <p>Are you sure you want to remove it?</p>
+
+            <button type="button" id="confirmRemoveBtn">Confirm Removal</button>
+            <button type="button" id="cancelRemoveBtn">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal for Update Item -->
+<div id="updateItemModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-update-btn">&times;</span>
+        <h2>Update Item</h2>
+        <label for="updateItemSelect">Select Item to Update:</label>
+        <select id="updateItemSelect" required>
+            <option value="">-- Select an Item --</option>
+            <!-- Options will be dynamically populated -->
+        </select>
         
+        <div id="updateItemDetails" style="display: none;">
+            <label for="updateItemName">Item Name:</label>
+            <input type="text" id="updateItemName" required>
+            <label for="updateCategory">Category:</label>
+            <input type="text" id="updateCategory" required>
+            <label for="updateQuantity">Quantity:</label>
+            <input type="number" id="updateQuantity" required>
+            <label for="updateExpiryDate">Expiry Date:</label>
+            <input type="date" id="updateExpiryDate" required>
+            <label for="updateSupplier">Supplier:</label>
+            <input type="text" id="updateSupplier" required>
+        </div>
+        
+        <button id="confirmUpdateBtn">Confirm Update</button>
+    </div>
+</div>
+
+
+
 
         <div class="top-row">
             <div class="search-sort">

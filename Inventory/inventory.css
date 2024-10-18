@@ -414,6 +414,40 @@ form button:hover {
 
 
 
+/* Specific styles for removal modal */
+#removeItemModal .modal-content {
+    border: 1px solid #dc3545; /* Red border for removal modal */
+}
+/* Style for select element */
+select {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for better spacing */
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text color */
+    font-size: 16px; /* Font size */
+    margin-bottom: 15px; /* Space below */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+/* Change border color on focus */
+select:focus {
+    border-color: #0056b3; /* Darker blue when focused */
+    outline: none; /* Remove default outline */
+}
+
+/* Style for the dropdown options */
+select option {
+    background-color: #ffffff; /* White background for options */
+    color: #333333; /* Dark text color */
+}
+
+/* Hover effect for options */
+select option:hover {
+    background-color: #e0e7ff; /* Light blue on hover */
+}
 
 
 
