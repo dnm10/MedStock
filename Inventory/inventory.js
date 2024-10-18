@@ -116,3 +116,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Event listeners can be attached directly in the display function if needed
 });
+
+
+//add item button
+document.getElementById('addItemBtn').addEventListener('click', function() {
+    document.getElementById('addItemModal').style.display = 'block';
+});
+
+document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('addItemModal').style.display = 'none';
+});
+
+window.onclick = function(event) {
+    const modal = document.getElementById('addItemModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Handle form submission and add new item to the inventory
+document.getElementById('addItemForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get values from form inputs
+    const itemName = document.getElementById('itemName').value;
+    const category = document.getElementById('category').value;
+    const quantity = document.getElementById('quantity').value;
+    const expiryDate = document.getElementById('expiryDate').value;
+    const supplier = document.getElementById('supplier').value;
+    const minStock = document.getElementById('minStock').value;
+    
+    // Add the new item to the inventory
+    const inventoryList = document.getElementById('inventoryList');
+    const newRow = document.createElement('tr');
+    newRow.innerHTML = `
+        <td>${inventoryList.rows.length + 1}</td>
+        <td>${itemName}</td>
+        <td>${category}</td>
+        <td>${quantity}</td>
+        <td>${expiryDate}</td>
+        <td>${supplier}</td>
+        <td>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+        </td>
+    `;
+    
+    inventoryList.appendChild(newRow);
+    
+    // Clear the form
+    document.getElementById('addItemForm').reset();
+    
+    // Close the modal
+    document.getElementById('addItemModal').style.display = 'none';
+});
+
+
+//Update item

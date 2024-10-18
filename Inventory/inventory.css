@@ -224,6 +224,196 @@ button:focus {
 }
 
 
+/*Add new Item*
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #007bff; /* Blue border around the form */
+    width: 40%; /* Adjust width as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Make it sticky */
+    top: 0; /* Align it to the top */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Add hover effect on modal content */
+.modal-content:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+/* Close button */
+.close-btn {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #f44336; /* Red color on hover */
+}
+
+/* Form title styling */
+.modal-content h2 {
+    text-align: center; /* Center the title */
+    color: #007bff; /* Blue color for the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Form styles inside modal */
+form {
+    border: 1px solid #007bff; /* Blue border around the form */
+    padding: 20px; /* Padding around the form */
+    border-radius: 4px; /* Rounded corners */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000; /* Black color for labels */
+}
+
+/* Updated input styles */
+form input {
+    width: 100%;
+    padding: 8px; /* Reduced padding for inputs */
+    margin-bottom: 15px; /* Slightly reduced margin */
+    border-radius: 4px;
+    border: 2px solid #007bff; /* Blue border */
+    transition: border-color 0.3s ease; /* Smooth transition for input */
+}
+
+form input:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow */
+}
+
+/* Updated button styles */
+form button {
+    padding: 8px 15px; /* Reduced padding for buttons */
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+
+/*Update item */
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Black background with transparency */
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #007bff; /* Blue border around the form */
+    width: 40%; /* Adjust width as needed */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky; /* Make it sticky */
+    top: 0; /* Align it to the top */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+/* Close button */
+.close-btn {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: #f44336; /* Red color on hover */
+}
+
+/* Form title styling */
+.modal-content h2 {
+    text-align: center; /* Center the title */
+    color: #007bff; /* Blue color for the title */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+/* Form styles inside modal */
+form {
+    border: 1px solid #007bff; /* Blue border around the form */
+    padding: 20px; /* Padding around the form */
+    border-radius: 4px; /* Rounded corners */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000; /* Black color for labels */
+}
+
+/* Updated input styles */
+form input {
+    width: 100%;
+    padding: 8px; /* Reduced padding for inputs */
+    margin-bottom: 15px; /* Slightly reduced margin */
+    border-radius: 4px;
+    border: 2px solid #007bff; /* Blue border */
+    transition: border-color 0.3s ease; /* Smooth transition for input */
+}
+
+form input:focus {
+    border-color: #0056b3; /* Darker blue on focus */
+    outline: none; /* Remove outline */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow */
+}
+
+/* Updated button styles */
+form button {
+    padding: 8px 15px; /* Reduced padding for buttons */
+    background-color: #007bff;
+    color: white;
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+
+
 
 
 
