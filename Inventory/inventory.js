@@ -173,133 +173,79 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
 
 
 //Update item
- 
-// Inventory data
-let inventory_update = [
-    { no: 1, name: 'Item A', category: 'Category 1', quantity: 100, expiryDate: '2024-12-01', supplier: 'Supplier A' },
-    { no: 2, name: 'Item B', category: 'Category 2', quantity: 50, expiryDate: '2024-11-15', supplier: 'Supplier B' },
-    { no: 3, name: 'Item C', category: 'Category 3', quantity: 75, expiryDate: '2024-10-10', supplier: 'Supplier C' },
-    { no: 4, name: 'Item D', category: 'Category 1', quantity: 120, expiryDate: '2024-12-22', supplier: 'Supplier D' },
-    { no: 5, name: 'Item E', category: 'Category 4', quantity: 20, expiryDate: '2024-11-05', supplier: 'Supplier E' },
-    { no: 6, name: 'Item F', category: 'Category 2', quantity: 80, expiryDate: '2025-01-02', supplier: 'Supplier F' }
-];
 
-// Get elements for the update modal
-const updateItemModal = document.getElementById("updateItemModal");
-const closeUpdateBtn = document.querySelector(".close-update-btn");
-const updateItemSelect = document.getElementById("updateItemSelect");
-const updateItemDetails = document.getElementById("updateItemDetails");
-const updateItemName = document.getElementById("updateItemName");
-const updateCategory = document.getElementById("updateCategory");
-const updateQuantity = document.getElementById("updateQuantity");
-const updateExpiryDate = document.getElementById("updateExpiryDate");
-const updateSupplier = document.getElementById("updateSupplier");
-const confirmUpdateBtn = document.getElementById("confirmUpdateBtn");
-const updateItemBtn = document.getElementById("updateItemBtn");
-const inventoryTableBody = document.getElementById("inventoryTableBody"); // Make sure you have this in your HTML
+// Event listener for the update item button
+document.getElementById('updateItemBtn').addEventListener('click', function() {
+    // Show the update modal and populate dropdown
+    const updateItemSelect = document.getElementById('updateItemSelect');
+    updateItemSelect.innerHTML = '<option value="">-- Select an Item --</option>'; // Reset dropdown options
 
-// Function to show the update modal
-updateItemBtn.onclick = function() {
-    updateItemModal.style.display = "block";
-    populateUpdateDropdown(); // Populate dropdown with items
-};
-
-// Populate dropdown with inventory items
-function populateUpdateDropdown() {
-    updateItemSelect.innerHTML = '<option value="">-- Select an Item --</option>'; // Clear existing options
     inventory.forEach(item => {
-        const option = document.createElement("option");
-        option.value = item.no;
-        option.text = item.name;
+        const option = document.createElement('option');
+        option.value = item.no; // Use the item's no or ID
+        option.textContent = item.name; // Display the item name
         updateItemSelect.appendChild(option);
     });
-}
 
-// Display selected item details for updating
-updateItemSelect.onchange = function() {
-    const selectedItemNo = parseInt(updateItemSelect.value);
-    const selectedItem = inventory.find(item => item.no === selectedItemNo);
+    document.getElementById('updateItemModal').style.display = 'block'; // Show the modal
+});
+
+// Close button functionality for the update item modal
+document.querySelector('.close-update-btn').addEventListener('click', function() {
+    document.getElementById('updateItemModal').style.display = 'none';
+});
+
+// Event listener for selecting an item to update
+document.getElementById('updateItemSelect').addEventListener('change', function() {
+    const selectedItemNo = this.value;
+    const selectedItem = inventory.find(item => item.no == selectedItemNo);
 
     if (selectedItem) {
-        // Fill the input fields with the selected item details
-        updateItemName.value = selectedItem.name;
-        updateCategory.value = selectedItem.category;
-        updateQuantity.value = selectedItem.quantity;
-        updateExpiryDate.value = selectedItem.expiryDate;
-        updateSupplier.value = selectedItem.supplier;
-        updateItemDetails.style.display = "block"; // Show the details section
+        // Populate the input fields with the selected item's details
+        document.getElementById('updateItemName').value = selectedItem.name;
+        document.getElementById('updateCategory').value = selectedItem.category;
+        document.getElementById('updateQuantity').value = selectedItem.quantity;
+        document.getElementById('updateExpiryDate').value = selectedItem.expiryDate;
+        document.getElementById('updateSupplier').value = selectedItem.supplier;
+        document.getElementById('updateItemDetails').style.display = 'block'; // Show details section
     } else {
-        updateItemDetails.style.display = "none"; // Hide if no item is selected
+        document.getElementById('updateItemDetails').style.display = 'none'; // Hide if no selection
     }
-};
+});
 
-// Close the modal when the close button is clicked
-closeUpdateBtn.onclick = function() {
-    updateItemModal.style.display = "none";
-};
+// Function to confirm updates
+document.getElementById('confirmUpdateBtn').addEventListener('click', function() {
+    const selectedItemNo = document.getElementById('updateItemSelect').value;
 
-// Function to refresh the inventory table
-function populateInventoryTable() {
-    inventoryTableBody.innerHTML = ''; // Clear existing table rows
-    inventory.forEach(item => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${item.no}</td>
-            <td>${item.name}</td>
-            <td>${item.category}</td>
-            <td>${item.quantity}</td>
-            <td>${item.expiryDate}</td>
-            <td>${item.supplier}</td>
-        `;
-        inventoryTableBody.appendChild(row);
-    });
-}
-
-// Confirm update action and update the inventory
-confirmUpdateBtn.onclick = function() {
-    const selectedItemNo = parseInt(updateItemSelect.value);
-    const selectedItemIndex = inventory.findIndex(item => item.no === selectedItemNo);
-    
-    if (selectedItemIndex !== -1) {
-        // Update the item details in the inventory array
-        inventory[selectedItemIndex] = {
-            no: selectedItemNo,
-            name: updateItemName.value,
-            category: updateCategory.value,
-            quantity: parseInt(updateQuantity.value),
-            expiryDate: updateExpiryDate.value,
-            supplier: updateSupplier.value
+    if (selectedItemNo) {
+        const updatedItem = {
+            no: parseInt(selectedItemNo),
+            name: document.getElementById('updateItemName').value,
+            category: document.getElementById('updateCategory').value,
+            quantity: parseInt(document.getElementById('updateQuantity').value),
+            expiryDate: document.getElementById('updateExpiryDate').value,
+            supplier: document.getElementById('updateSupplier').value
         };
 
-        alert(`Item "${updateItemName.value}" has been updated!`);
+        // Update item in the inventory
+        inventory = inventory.map(item => item.no === updatedItem.no ? updatedItem : item);
 
         // Close the modal
-        updateItemModal.style.display = "none";
+        document.getElementById('updateItemModal').style.display = 'none';
 
-        // Refresh the inventory table
-        populateInventoryTable();
+        // Refresh the inventory display
+        displayInventory(inventory);
+        
+        alert('Item updated successfully!'); // Optional: Alert user
     } else {
-        alert("No item selected for update!");
+        alert('Please select an item to update.'); // Alert if no item is selected
     }
-};
-
-// Close the modal if the user clicks outside of it
-window.onclick = function(event) {
-    if (event.target == updateItemModal) {
-        updateItemModal.style.display = "none";
-    }
-};
-
-// Populate the table on page load
-window.onload = function() {
-    populateInventoryTable(); // Populate the inventory table when the page loads
-};
+});
 
 
 //Remove item
-
-
-let inventory_remove = [
+// Sample inventory items (without "Date Added")
+let inventory = [
     { no: 1, name: 'Item A', category: 'Category 1', quantity: 100, expiryDate: '2024-12-01', supplier: 'Supplier A' },
     { no: 2, name: 'Item B', category: 'Category 2', quantity: 50, expiryDate: '2024-11-15', supplier: 'Supplier B' },
     { no: 3, name: 'Item C', category: 'Category 3', quantity: 75, expiryDate: '2024-10-10', supplier: 'Supplier C' },
@@ -308,130 +254,12 @@ let inventory_remove = [
     { no: 6, name: 'Item F', category: 'Category 2', quantity: 80, expiryDate: '2025-01-02', supplier: 'Supplier F' }
 ];
 
-// Get elements
-const removeItemBtn = document.getElementById("removeItemBtn");
-const removeModal = document.getElementById("removeModal");
-const closeRemoveModal = document.getElementById("closeRemoveModal");
-const cancelRemoveBtn = document.getElementById("cancelRemoveBtn");
-const confirmRemoveBtn = document.getElementById("confirmRemoveBtn");
-const removeItemDropdown = document.getElementById("removeItemDropdown");
-const removeItemName = document.getElementById("removeItemName");
-
-// Ensure the modal is hidden initially
-removeModal.style.display = "none";
-
-// Populate dropdown with inventory items
-function populateRemoveDropdown() {
-    removeItemDropdown.innerHTML = '<option value="">--Select an Item--</option>'; // Clear existing options
-    inventory.forEach(item => {
-        const option = document.createElement("option");
-        option.value = item.no;
-        option.text = item.name;
-        removeItemDropdown.appendChild(option);
-    });
-}
-
-// Populate inventory table
-function populateInventoryTable() {
-    const inventoryTableBody = document.getElementById("inventoryTable").querySelector("tbody");
-    inventoryTableBody.innerHTML = ""; // Clear existing rows
-
-    inventory.forEach(item => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${item.no}</td>
-            <td>${item.name}</td>
-            <td>${item.category}</td>
-            <td>${item.quantity}</td>
-            <td>${item.expiryDate}</td>
-            <td>${item.supplier}</td>
-        `;
-        inventoryTableBody.appendChild(row);
-    });
-}
-
-// Display selected item name for confirmation
-removeItemDropdown.onchange = function() {
-    const selectedItemNo = parseInt(removeItemDropdown.value);
-    const selectedItem = inventory.find(item => item.no === selectedItemNo);
-
-    if (selectedItem) {
-        removeItemName.textContent = selectedItem.name;
-    } else {
-        removeItemName.textContent = ''; // Clear if nothing is selected
-    }
-};
-
-// Show the modal when the "Remove Item" button is clicked
-removeItemBtn.onclick = function() {
-    removeModal.style.display = "block";
-    populateRemoveDropdown();  // Populate the dropdown when modal is opened
-};
-
-// Close the modal when the close button is clicked
-closeRemoveModal.onclick = function() {
-    removeModal.style.display = "none";
-};
-
-// Close the modal when the cancel button is clicked
-cancelRemoveBtn.onclick = function() {
-    removeModal.style.display = "none";
-};
-
-// Confirm removal action and update the inventory
-confirmRemoveBtn.onclick = function() {
-    const selectedItemNo = parseInt(removeItemDropdown.value);
-    const selectedItemIndex = inventory.findIndex(item => item.no === selectedItemNo);
-    
-    if (selectedItemIndex !== -1) {
-        // Remove the item from the inventory array
-        const removedItem = inventory.splice(selectedItemIndex, 1)[0]; // Remove and store removed item
-        alert(`Item "${removedItem.name}" has been removed!`);
-
-        // Update the dropdown after removal
-        populateRemoveDropdown();
-
-        // Update the inventory table after removal
-        populateInventoryTable(); // Call the function to update the table
-        
-        // Hide the modal
-        removeModal.style.display = "none";
-        
-        // Clear the displayed item name
-        removeItemName.textContent = '';
-    } else {
-        alert("No item selected for removal!");
-    }
-};
-
-// Close the modal if the user clicks outside of it
-window.onclick = function(event) {
-    if (event.target == removeModal) {
-        removeModal.style.display = "none";
-    }
-};
-
-// Call this function when the page loads to display initial inventory
-populateInventoryTable();
-
-
-//------inventory report
-// Sample inventory data
-let inventoryData = [
-    { no: 1, name: 'Item A', category: 'Category 1', quantity: 100, expiryDate: '2024-12-01', supplier: 'Supplier A' },
-    { no: 2, name: 'Item B', category: 'Category 2', quantity: 50, expiryDate: '2024-11-15', supplier: 'Supplier B' },
-    { no: 3, name: 'Item C', category: 'Category 3', quantity: 75, expiryDate: '2024-10-10', supplier: 'Supplier C' },
-    { no: 4, name: 'Item D', category: 'Category 1', quantity: 120, expiryDate: '2024-12-22', supplier: 'Supplier D' },
-    { no: 5, name: 'Item E', category: 'Category 4', quantity: 20, expiryDate: '2024-11-05', supplier: 'Supplier E' },
-    { no: 6, name: 'Item F', category: 'Category 2', quantity: 80, expiryDate: '2025-01-02', supplier: 'Supplier F' }
-];
-
-// Populate the inventory table
-function populateInventory() {
+// Function to display the inventory items in the table
+function displayInventory(items) {
     const inventoryList = document.getElementById('inventoryList');
-    inventoryList.innerHTML = ''; // Clear existing content
+    inventoryList.innerHTML = ''; // Clear the existing rows
 
-    inventoryData.forEach(item => {
+    items.forEach(item => {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${item.no}</td>
@@ -440,41 +268,55 @@ function populateInventory() {
             <td>${item.quantity}</td>
             <td>${item.expiryDate}</td>
             <td>${item.supplier}</td>
+            <td>
+                <button class="edit-btn">Edit</button>
+                <button class="delete-btn">Delete</button>
+            </td>
         `;
         inventoryList.appendChild(row);
     });
 }
 
-// Get the modal
-const modal = document.getElementById("reportModal");
+// Initial display of all inventory items
+displayInventory(inventory);
 
-// Get the button that opens the modal
-const reportBtn = document.getElementById("reportBtn");
+// Event listener for the remove item button
+document.getElementById('removeItemBtn').addEventListener('click', function() {
+    // Show the removal modal and populate dropdown
+    const removeItemSelect = document.getElementById('removeItemSelect');
+    removeItemSelect.innerHTML = '<option value="">-- Select an Item --</option>'; // Reset dropdown options
 
-// Get the <span> element that closes the modal
-const closeBtn = document.querySelector(".close");
+    inventory.forEach(item => {
+        const option = document.createElement('option');
+        option.value = item.no; // Use the item's no or ID
+        option.textContent = item.name; // Display the item name
+        removeItemSelect.appendChild(option);
+    });
 
-// When the user clicks on the report button, open the modal
-reportBtn.onclick = function() {
-    // Update modal content
-    document.getElementById("modalTotalItems").innerText = inventoryData.length; // Update with actual inventory count
-    const categories = [...new Set(inventoryData.map(item => item.category))]; // Get unique categories
-    document.getElementById("modalTotalCategories").innerText = categories.length; // Update with unique category count
+    document.getElementById('removeItemModal').style.display = 'block'; // Show the modal
+});
 
-    modal.style.display = "block"; // Show modal
-}
+// Close button functionality for the remove item modal
+document.querySelector('.close-remove-btn').addEventListener('click', function() {
+    document.getElementById('removeItemModal').style.display = 'none';
+});
 
-// When the user clicks on <span> (x), close the modal
-closeBtn.onclick = function() {
-    modal.style.display = "none"; // Hide modal
-}
+// Function to remove item based on selected value
+document.getElementById('confirmRemovalBtn').addEventListener('click', function() {
+    const selectedItem = document.getElementById('removeItemSelect').value; // Get selected item
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target === modal) {
-        modal.style.display = "none"; // Hide modal
+    if (selectedItem) {
+        // Remove item from inventory
+        inventory = inventory.filter(item => item.no !== parseInt(selectedItem)); // Update the inventory array
+        
+        // Close the modal
+        document.getElementById('removeItemModal').style.display = 'none';
+
+        // Refresh the inventory display
+        displayInventory(inventory);
+        
+        alert('Item removed successfully!'); // Optional: Alert user
+    } else {
+        alert('Please select an item to remove.'); // Alert if no item is selected
     }
-}
-
-// Populate inventory data on page load
-populateInventory();
+});
