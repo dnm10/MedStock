@@ -1,4 +1,4 @@
-// Event listeners for sort and search actions
+// Event listeners for sort, search actions
 document.getElementById('sortBtn').addEventListener('click', () => {
     const sortBy = document.getElementById('sortOptions').value;
     sortInventory(sortBy);
