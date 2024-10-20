@@ -19,91 +19,7 @@
             <button id="removeItemBtn">Remove Item</button>
             <button id="reportBtn">Inventory Report</button>
         </div>
-
-
-    <!-- Modal for Add New Item -->
-    <div id="addItemModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>Add New Item</h2>
-            <form id="addItemForm">
-                <label for="itemName">Item Name:</label>
-                <input type="text" id="itemName" required><br>
-                
-                <label for="category">Category:</label>
-                <input type="text" id="category" required><br>
-                
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" required><br>
-                
-                <label for="expiryDate">Expiry Date:</label>
-                <input type="date" id="expiryDate" required><br>
-                
-                <label for="supplier">Supplier:</label>
-                <input type="text" id="supplier" required><br>
-                
-                <label for="minStock">Minimum Stock Level:</label>
-                <input type="number" id="minStock" required><br>
-                
-                <label for="itemImage">Add Image:</label>
-                <input type="file" id="itemImage"><br><br>
-                
-                <button type="submit">Save Item</button>
-            </form>
-        </div>
-    </div>
-
-        <!-- Modal for Remove Item -->
-<div id="removeItemModal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h2>Remove Item</h2>
-        <form id="removeItemForm">
-            <label for="removeItemSelect">Select Item to Remove:</label>
-            <select id="removeItemSelect" required>
-                <option value="">--Select Item--</option>
-                <!-- Options will be populated by JavaScript -->
-            </select><br><br>
-
-            <p>Are you sure you want to remove it?</p>
-
-            <button type="button" id="confirmRemoveBtn">Confirm Removal</button>
-            <button type="button" id="cancelRemoveBtn">Cancel</button>
-        </form>
-    </div>
-</div>
-
-<!-- Modal for Update Item -->
-<div id="updateItemModal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close-update-btn">&times;</span>
-        <h2>Update Item</h2>
-        <label for="updateItemSelect">Select Item to Update:</label>
-        <select id="updateItemSelect" required>
-            <option value="">-- Select an Item --</option>
-            <!-- Options will be dynamically populated -->
-        </select>
-        
-        <div id="updateItemDetails" style="display: none;">
-            <label for="updateItemName">Item Name:</label>
-            <input type="text" id="updateItemName" required>
-            <label for="updateCategory">Category:</label>
-            <input type="text" id="updateCategory" required>
-            <label for="updateQuantity">Quantity:</label>
-            <input type="number" id="updateQuantity" required>
-            <label for="updateExpiryDate">Expiry Date:</label>
-            <input type="date" id="updateExpiryDate" required>
-            <label for="updateSupplier">Supplier:</label>
-            <input type="text" id="updateSupplier" required>
-        </div>
-        
-        <button id="confirmUpdateBtn">Confirm Update</button>
-    </div>
-</div>
-
-
-
-
+   
         <div class="top-row">
             <div class="search-sort">
                 <input type="text" id="searchBox" placeholder="Search...">
@@ -188,6 +104,131 @@
         </table>
     </div>
 
+    <!-- Modal for Add New Item -->
+    <div id="addItemModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Item</h2>
+            <form id="addItemForm">
+                <label for="itemName">Item Name:</label>
+                <input type="text" id="itemName" required><br>
+                
+                <label for="category">Category:</label>
+                <input type="text" id="category" required><br>
+                
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" required><br>
+                
+                <label for="expiryDate">Expiry Date:</label>
+                <input type="date" id="expiryDate" required><br>
+                
+                <label for="supplier">Supplier:</label>
+                <input type="text" id="supplier" required><br>
+                
+                <label for="minStock">Minimum Stock Level:</label>
+                <input type="number" id="minStock" required><br>
+                
+                <label for="itemImage">Add Image:</label>
+                <input type="file" id="itemImage"><br><br>
+                
+                <button type="submit">Save Item</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- Remove Item Modal -->
+     <div id="removeModal" class="modal">
+        <div class="modal-content">
+            <span id="closeRemoveModal" class="close">&times;</span>
+            <h2>Remove Item</h2>
+
+            <!-- Dropdown for selecting item to remove -->
+            <label for="removeItemDropdown">Select Item to Remove:</label>
+            <select id="removeItemDropdown">
+                <option value="">--Select an Item--</option>
+            </select>
+            
+            <p>Are you sure you want to remove this item: <strong id="removeItemName"></strong>?</p>
+
+            <div class="action-buttons">
+                <button id="confirmRemoveBtn">Confirm Remove</button>
+                <button id="cancelRemoveBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal for Update Item -->
+
+
+<div id="updateItemModal" class="modal">
+    <div class="modal-content">
+        <span class="close-update-btn">&times;</span>
+        <h2>Update Item</h2>
+        <label for="updateItemSelect">Select Item to Update:</label>
+        <select id="updateItemSelect" required>
+            <option value="">-- Select an Item --</option>
+        </select>
+        
+        <div id="updateItemDetails" style="display: none;">
+            <label for="updateItemName">Item Name:</label>
+            <input type="text" id="updateItemName" required>
+            <label for="updateCategory">Category:</label>
+            <input type="text" id="updateCategory" required>
+            <label for="updateQuantity">Quantity:</label>
+            <input type="number" id="updateQuantity" required>
+            <label for="updateExpiryDate">Expiry Date:</label>
+            <input type="date" id="updateExpiryDate" required>
+            <label for="updateSupplier">Supplier:</label>
+            <input type="text" id="updateSupplier" required>
+        </div>
+        
+        <button id="confirmUpdateBtn">Confirm Update</button>
+    </div>
+</div>
+
+        <!-- Modal for Inventory Report-->
+
+
+           <!-- Inventory Period -->
+           <div class="report-details">
+            <label for="startDate">From:</label>
+            <input type="date" id="startDate" value="2024-01-01">
+            <label for="endDate">To:</label>
+            <input type="date" id="endDate" value="2024-01-31">
+            <p>Total Items in Inventory: <span id="totalItems">6</span></p>
+            <p>Total Categories: <span id="totalCategories">4</span></p>
+        </div>
+
+        <!-- Report Modal -->
+        <div id="reportModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Inventory Report</h2>
+                <p>Total Items: <span id="modalTotalItems"></span></p>
+                <p>Total Categories: <span id="modalTotalCategories"></span></p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="reportBtn">Inventory Report</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Item Name</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Expiry Date</th>
+                    <th>Supplier</th>
+                </tr>
+            </thead>
+            <tbody id="inventoryList">
+                <!-- Inventory items will be populated here -->
+            </tbody>
+        </table>
+    </div>
     <script src="inventory.js"></script>
 </body>
 </html>
