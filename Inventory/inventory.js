@@ -1,4 +1,4 @@
-// Event listeners for sort, search actions
+// Event listeners for sort and search actions
 document.getElementById('sortBtn').addEventListener('click', () => {
     const sortBy = document.getElementById('sortOptions').value;
     sortInventory(sortBy);
@@ -117,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event listeners can be attached directly in the display function if needed
 });
 
-
 //add item button
 document.getElementById('addItemBtn').addEventListener('click', function() {
     document.getElementById('addItemModal').style.display = 'block';
@@ -170,7 +169,6 @@ document.getElementById('addItemForm').addEventListener('submit', function(event
     // Close the modal
     document.getElementById('addItemModal').style.display = 'none';
 });
-
 
 //Update item
  
@@ -295,9 +293,7 @@ window.onload = function() {
     populateInventoryTable(); // Populate the inventory table when the page loads
 };
 
-
 //Remove item
-
 
 let inventory_remove = [
     { no: 1, name: 'Item A', category: 'Category 1', quantity: 100, expiryDate: '2024-12-01', supplier: 'Supplier A' },
@@ -414,7 +410,6 @@ window.onclick = function(event) {
 // Call this function when the page loads to display initial inventory
 populateInventoryTable();
 
-
 //------inventory report
 // Sample inventory data
 let inventoryData = [
@@ -478,3 +473,6 @@ window.onclick = function(event) {
 
 // Populate inventory data on page load
 populateInventory();
+
+
+

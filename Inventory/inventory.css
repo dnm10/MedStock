@@ -28,7 +28,6 @@ h1 {
     margin-bottom: 20px; /* Add some margin below the heading */
 }
 
-
 .signup {
     background-color: #007bff; /* Bright blue for buttons */
     color: white;
@@ -224,7 +223,6 @@ button:focus {
     outline: none;
 }
 
-
 /*Add new Item*
 /* Modal Styles */
 /* Modal Styles */
@@ -332,7 +330,6 @@ form button[type="submit"]:active {
     background-color: #004494; /* Even darker blue on click */
     transform: translateY(0); /* Reset to original position */
 }
-
 
 /*Update item */
 /* Modal Styles */
@@ -445,7 +442,6 @@ body {
     color: red; /* Text color on hover */
 }
 
-
 /* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
@@ -520,4 +516,8 @@ body {
 #removeItemName {
     font-weight: bold;
 }
+
+
+
+
 

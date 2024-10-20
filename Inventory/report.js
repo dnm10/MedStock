@@ -67,5 +67,4 @@ function exportToPDF() {
     alert("Export to PDF feature is not implemented yet.");
 }
 
-function exportToExcel() {
-    alert
+    
