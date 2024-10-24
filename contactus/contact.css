@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    background: url("hpbg.png") center/cover no-repeat; /* Your existing background image */
+    backdrop-filter: blur(4px); /* Adjust the blur effect here */
+    height: 100vh; /* Ensures body takes full height */
+    width: 100%;
+    overflow: hidden; /* Prevents scrolling when background is blurred */
+}
+
+.wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 350px;
+    width: 100%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 2px #4ba1fc; 
+}
+
+.wrapper h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #000000;
+}
+
+.input-field {
+    position: relative; /* Allow positioning of label */
+    margin-bottom: 20px;
+}
+
+.input-field input,
+.input-field textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    transition: border-color 0.3s ease; /* Smooth transition */
+    font-size: 1rem; /* Default font size */
+}
+
+.input-field label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    color: #a9a9a9; /* Gray color for label */
+    transition: all 0.2s ease; /* Smooth transition */
+    pointer-events: none; /* Prevents interaction with label */
+}
+
+/* Placeholder behavior */
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label,
+.input-field textarea:focus + label,
+.input-field textarea:not(:placeholder-shown) + label {
+    transform: translateY(-120%); /* Move label up */
+    color: #00bcd4; /* Change label color when focused or valid */
+    font-size: 0.75rem; /* Smaller font size */
+}
+
+/* Make sure the label does not cover the text in the textarea */
+.input-field textarea {
+    resize: none; /* Prevent resizing of textarea */
+    height: 80px; /* Set a specific height for textarea */
+}
+
+.btn input[type="submit"] {
+    border: 0;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    background: #4ba1fc;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.btn input[type="submit"]:hover {
+    background: #3b90e1; /* Change to a darker blue */
+    transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+#error_message {
+    margin-bottom: 20px;
+    background: #fe8b8e;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.5s ease;
+}

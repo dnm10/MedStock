@@ -1,0 +1,145 @@
+/*SECOND BOXES*/
+.container {
+  max-width: 1200px; 
+  margin-left: auto; 
+  margin-right: auto; 
+  padding: 0%; 
+}
+
+/* Reset any margins that could be causing alignment issues */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Home content with centralized layout */
+.home-content {
+  padding: 20px;
+  margin-left: 90px;
+  margin-right: 80px;
+}
+
+/* Flexbox for overview boxes */
+.overview-boxes {
+  display: flex;
+  justify-content: center; /* Center content */
+  gap: 20px; /* Add space between boxes instead of margin-right */
+  margin-bottom: 20px;
+}
+
+.overview-boxes .box {
+  position: relative;
+  width: 24%; /* Fixed width percentage */
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Box content alignment */
+.box .right-side {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.box .box-topic {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.box .number {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.box .indicator {
+  display: flex;
+  align-items: center;
+}
+
+.indicator i {
+  font-size: 20px;
+  color: #00aaff;
+}
+
+.indicator .text {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+/* Sales boxes */
+.sales-boxes {
+  display: flex;
+  justify-content: center; /* Center content */
+  gap: 20px; /* Use gap instead of margin */
+}
+
+.sales-boxes .recent-sales,
+.sales-boxes .top-sales {
+  flex: 1;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset any problematic margin */
+.sales-boxes .recent-sales {
+  margin-right: 0px;
+}
+
+/* Sales details styling */
+.sales-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.sales-details .details {
+  list-style: none;
+}
+
+.sales-details .details .topic {
+  font-weight: 500;
+}
+
+.sales-details .details li a {
+  display: block;
+  color: #555;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.sales-details .details li a:hover {
+  text-decoration: underline;
+}
+
+.top-sales-details {
+  list-style: none;
+  padding: 0;
+}
+
+.top-sales-details li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.top-sales-details li img {
+  width: 50px;
+  border-radius: 5px;
+}
+
+.top-sales-details li a {
+  color: #555;
+  text-decoration: none;
+}
+
+.top-sales-details li .price {
+  color: #00aaff;
+  font-weight: 500;
+}
